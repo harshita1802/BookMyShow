@@ -1,8 +1,7 @@
 package dev.harshita.BookMyShow.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
+import dev.harshita.BookMyShow.model.constant.MovieFeature;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,4 +18,8 @@ public class Movie extends BaseModel{
     private List<Actor> actors;
 
     private String description;
+
+    @ElementCollection
+    @Enumerated(EnumType.STRING)
+    private List<MovieFeature> movieFeatures;
 }

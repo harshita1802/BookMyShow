@@ -8,16 +8,18 @@ import lombok.Setter;
 
 import java.util.List;
 
-@Entity
 @Getter
 @Setter
-public class Theater extends BaseModel{
-
-    @Column(name = "THEATER_NAME")
+@Entity(name = "BMS_USER")
+public class User extends BaseModel{
     private String name;
 
-    private String address;
+    @Column(unique = true)
+    private String email;
+
+    private String password;
 
     @OneToMany
-    private List<Auditorium> auditoriumList;
+    private List<Ticket> tickets;
+
 }
